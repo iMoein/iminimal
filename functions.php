@@ -5,6 +5,7 @@ define('LESS_VERSION', 1.1);
 // لیست فونت‌های قابل انتخاب
 function less_available_fonts() {
     return [
+        'yekanbakh' => 'Yekan Bakh FaNum',
         'vazir' => 'Vazir',
         'vazircode' => 'Vazir Code',
         'gandom' => 'Gandom',
@@ -187,43 +188,3 @@ function less_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'less_enqueue_scripts');
  
-add_filter('site_transient_update_themes', 'iminimal_check_github_update');
-
-function iminimal_check_github_update($transient) {
-    // اطلاعات قالب فعلی
-    $theme_slug = 'iminimal'; // دایرکتوری قالب
-    $theme_data = wp_get_theme($theme_slug);
-    $current_version = $theme_data->get('Version');
-
-    // اطلاعات مخزن GitHub
-    $github_user = 'iMoein';
-    $github_repo = 'iminimal';
-    $github_api_url = "https://api.github.com/repos/$github_user/$github_repo/releases/latest";
-
-    // دریافت اطلاعات از GitHub
-    $response = wp_remote_get($github_api_url, [
-        'headers' => [
-            'Accept' => 'application/vnd.github.v3+json',
-            'User-Agent' => 'WordPress Update Checker'
-        ]
-    ]);
-
-    if (is_wp_error($response)) return $transient;
-
-    $body = json_decode(wp_remote_retrieve_body($response));
-    if (!isset($body->tag_name)) return $transient;
-
-    $latest_version = ltrim($body->tag_name, 'v'); // مثلاً v1.1.0 → 1.1.0
-
-    // اگر نسخه جدیدتر بود
-    if (version_compare($latest_version, $current_version, '>')) {
-        $transient->response[$theme_slug] = (object)[
-            'theme'       => $theme_slug,
-            'new_version' => $latest_version,
-            'url'         => "https://github.com/$github_user/$github_repo",
-            'package'     => "https://github.com/$github_user/$github_repo/archive/refs/tags/{$body->tag_name}.zip"
-        ];
-    }
-
-    return $transient;
-}
