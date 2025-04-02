@@ -5,7 +5,6 @@ define('LESS_VERSION', 1.1);
 // لیست فونت‌های قابل انتخاب
 function less_available_fonts() {
     return [
-        'yekanbakh' => 'Yekan Bakh FaNum',
         'vazir' => 'Vazir',
         'vazircode' => 'Vazir Code',
         'gandom' => 'Gandom',
@@ -49,7 +48,7 @@ add_action('wp_enqueue_scripts', 'less_enqueue_styles');
 add_filter('body_class', function($classes) {
 	if (get_option('enable_custom_font', 0)) {
 		$classes[] = 'enable-custom-font';
-		$font = get_option('selected_font_family', 'yekanbakh');
+		$font = get_option('selected_font_family', 'Vazir');
 		$classes[] = 'font-' . esc_attr($font);
 	}
 	return $classes;
@@ -75,7 +74,7 @@ function less_render_theme_settings_page() {
 	$enable_custom_font = get_option('enable_custom_font', 0);
 	$show_read_more     = get_option('show_read_more', 0);
 	$show_header_box    = get_option('show_header_box', 1);
-	$current_font       = get_option('selected_font_family', 'yekanbakh');
+	$current_font       = get_option('selected_font_family', 'Vazir');
 	$fonts              = less_available_fonts();
 	?>
 	<div class="wrap">
@@ -188,3 +187,47 @@ function less_enqueue_scripts() {
 }
 add_action('wp_enqueue_scripts', 'less_enqueue_scripts');
  
+add_filter('site_transient_update_themes', 'iminimal_check_github_update');
+
+function iminimal_check_github_update($transient) {
+    $theme_slug = wp_get_theme()->get_stylesheet(); // خودکار گرفتن نام قالب
+    $theme_data = wp_get_theme($theme_slug);
+    $current_version = $theme_data->get('Version');
+
+    $github_user = 'iMoein';
+    $github_repo = 'iminimal';
+    $github_api_url = "https://api.github.com/repos/$github_user/$github_repo/releases/latest";
+
+    $response = wp_remote_get($github_api_url, [
+        'headers' => [
+            'Accept' => 'application/vnd.github.v3+json',
+            'User-Agent' => 'WordPress Update Checker'
+        ]
+    ]);
+
+    if (is_wp_error($response)) return $transient;
+
+    $body = json_decode(wp_remote_retrieve_body($response));
+    if (!isset($body->tag_name)) return $transient;
+
+    $latest_version = ltrim($body->tag_name, 'v');
+
+    if (version_compare($latest_version, $current_version, '>')) {
+        // اطمینان از اینکه $transient آبجکت هست
+        if (!is_object($transient)) {
+            $transient = new stdClass();
+        }
+        if (!isset($transient->response)) {
+            $transient->response = [];
+        }
+
+        $transient->response[$theme_slug] = [
+            'theme'       => $theme_slug,
+            'new_version' => $latest_version,
+            'url'         => "https://github.com/$github_user/$github_repo",
+            'package'     => "https://github.com/$github_user/$github_repo/archive/refs/tags/{$body->tag_name}.zip"
+        ];
+    }
+
+    return $transient;
+}
