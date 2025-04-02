@@ -238,7 +238,7 @@
       <div class="copyright-text">
   <p>
     &copy; <?php echo date('Y'); ?> <?php bloginfo('name'); ?> – همه حقوق محفوظ است.
-    | <a href="https://github.com/iMoein/iminimal" target="_blank" rel="noopener nofollow" title="قالب وردپرس آی‌مینیمال">آی‌مینیمال</a>
+    | <a href="https://github.com/iMoein/iminimal" target="_blank" rel="noopener nofollow" title="پوسته وردپرس آی‌مینیمال">آی‌مینیمال</a>
   </p>
 </div>
 
