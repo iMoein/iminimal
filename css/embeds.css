@@ -1,0 +1,40 @@
+/* استایل عمومی برای iframe ها */
+iframe {
+    max-width: 100%;
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 2rem;
+  }
+  
+  /* اینستاگرام خاص */
+  .instagram-media {
+    margin: 1.5rem auto !important;
+    border: none !important;
+    border-radius: 12px !important;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04) !important;
+    background: #fff !important;
+  }
+  
+  /* توییتر، یوتیوب و غیره */
+  .wp-block-embed iframe,
+  .wp-block-embed-twitter iframe,
+  .wp-block-embed-instagram iframe,
+  .wp-block-embed-youtube iframe {
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+  }
+  
+  blockquote.instagram-media p:last-of-type {
+    font-size: 13px;
+    color: #999;
+    text-align: right;
+    margin-top: 1rem;
+    font-style: italic;
+    direction: rtl;
+  }
+
+    

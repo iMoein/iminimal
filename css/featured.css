@@ -1,0 +1,69 @@
+
+
+.featured-thumbnail {
+  height: 300px;
+  overflow: hidden;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1rem;
+}
+
+.featured-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 0;
+}
+
+.featured-post {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  overflow: hidden;
+  margin-bottom: 2rem;
+  padding: 0;
+}
+
+.featured-post .featured-thumbnail img {
+  width: 100%;
+  height: auto;
+  border-bottom: 1px solid #eee;
+  object-fit: cover;
+  display: block;
+}
+
+.featured-post .post-title {
+  font-size: 1.6rem;
+  font-weight: bold;
+  padding: 1rem 1.5rem 0 1.5rem;
+  color: #00695c;
+}
+
+.featured-post .post-excerpt {
+  padding: 0 1.5rem 0 0;
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+}
+
+.featured-post .more-link {
+  margin: 0 1.5rem 1.5rem;
+}
+
+.featured-ribbon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: #00695c; /* رنگ آبی مایل به فیروزه‌ای */
+  color: white;
+  font-size: 0.75rem;
+  font-weight: bold;
+  padding: 0.4rem 0.75rem;
+  border-bottom-right-radius: 8px;
+  z-index: 10;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.post.featured-post {
+  position: relative;
+}

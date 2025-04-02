@@ -1,0 +1,35 @@
+
+.wp-block-search__inside-wrapper {
+  display: flex;
+  border: 2px solid #d1d5db;
+  border-radius:10px;
+  overflow: hidden;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+  max-width: 100%;
+}
+
+.wp-block-search__input {
+  flex: 1;
+  border: none;
+  padding: 10px 16px;
+  font-size: 15px;
+  outline: none;
+  background: transparent;
+}
+
+.wp-block-search__button {
+  background-color: #166534;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 15px;
+  border-right: 1px solid #d1d5db;
+  border-radius: 0;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.wp-block-search__button:hover {
+  background-color: #15803d;
+}

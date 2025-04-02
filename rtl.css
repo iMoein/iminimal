@@ -1,0 +1,180 @@
+/* Import rest of theme sections */
+@import "css/post.css";
+@import "css/comments.css";
+@import "css/featured.css";
+@import "css/pagination.css";
+@import "css/search.css";
+@import "css/widgets.css";
+@import "css/header.css";
+@import "css/blocks.css";
+@import "css/embeds.css";
+@import "css/responsive.css";
+
+
+
+/* ============================
+   پویا: فونت بر اساس تنظیمات
+=============================== */
+
+body.enable-custom-font.font-yekanbakh,
+body.enable-custom-font.font-yekanbakh * {
+  font-family: "Yekan Bakh FaNum", sans-serif;
+}
+
+body.enable-custom-font.font-vazir,
+body.enable-custom-font.font-vazir * {
+  font-family: "Vazir", sans-serif;
+}
+
+body.enable-custom-font.font-vazircode,
+body.enable-custom-font.font-vazircode * {
+  font-family: "Vazir Code", monospace;
+}
+
+body.enable-custom-font.font-nahid,
+body.enable-custom-font.font-nahid * {
+  font-family: "Nahid", sans-serif;
+}
+
+body.enable-custom-font.font-parastoo,
+body.enable-custom-font.font-parastoo * {
+  font-family: "Parastoo", sans-serif;
+}
+
+body.enable-custom-font.font-gandom,
+body.enable-custom-font.font-gandom * {
+  font-family: "Gandom", sans-serif;
+}
+
+body.enable-custom-font.font-sahel,
+body.enable-custom-font.font-sahel * {
+  font-family: "Sahel", sans-serif;
+}
+
+body.enable-custom-font.font-shabnam,
+body.enable-custom-font.font-shabnam * {
+  font-family: "Shabnam", sans-serif;
+}
+
+body.enable-custom-font.font-tanha,
+body.enable-custom-font.font-tanha * {
+  font-family: "Tanha", sans-serif;
+}
+
+/* === پایه === */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eef3f3;
+  color: #222;
+  direction: rtl;
+  text-align: right;
+  font-size: 15px;
+  line-height: 1.9;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* === لینک‌ها === */
+a {
+  color: #009688;
+  text-decoration: none !important;
+}
+a:hover {
+  color: #014b43;
+  text-decoration: none !important;
+}
+
+/* === تیترها === */
+h1, h2, h3, h4, h5, h6 {
+  color: #00695c;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 1.5rem 0 1rem;
+}
+
+/* === پاراگراف‌ها === */
+
+
+/* === لیست‌ها === */
+ul, ol {
+  padding-right: 1.5rem;
+  margin: 1rem 0;
+}
+
+
+/* === تصاویر === */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  display: block;
+}
+
+/* === جداول === */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 14px;
+}
+th, td {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  text-align: right;
+}
+
+/* === نقل‌قول === */
+blockquote {
+  border-right: 4px solid #009688;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  background: #f1fefb;
+  border-radius: 12px;
+  font-style: italic;
+  color: #444;
+}
+blockquote cite {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: #00796b;
+}
+
+/* === کد و پیش‌فرمت === */
+pre, code {
+  background: #f5f5f5;
+  font-family: "Vazir Code", monospace;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  direction: ltr;
+  display: block;
+  overflow-x: auto;
+  font-size: 13px;
+}
+
+/* === فرم‌ها === */
+input, textarea, select, button {
+  font-family: inherit;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  box-sizing: border-box;
+}
+input:focus, textarea:focus, select:focus {
+  border-color: #009688;
+  outline: none;
+}
+button {
+  background-color: #009688;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+button:hover {
+  background-color: #00796b;
+}

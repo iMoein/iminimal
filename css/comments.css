@@ -1,0 +1,289 @@
+.comment-body {
+  background-color: #f9f9f9;
+  border-right: 4px solid #ddd;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.bypostauthor .comment-body {
+  background-color: #e6f7ff;
+  border-right: 4px solid #009688;
+}
+
+.pending-comment .comment-body {
+  background-color: #fff8e1;
+  border-right: 4px solid #ffc107;
+}
+
+.comment-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 0.5rem;
+}
+
+.comment-avatar img {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+}
+
+.comment-author {
+  font-weight: bold;
+  font-size: 15px;
+  color: #00695c;
+  display: block;
+}
+
+.comment-author .says {
+  display: none;
+}
+
+.comment-meta {
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.comment-text {
+  margin-top: 0.5rem;
+  font-size: 15px;
+  line-height: 1.7;
+}
+
+.comment-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.comment-reply {
+  margin-top: 1rem;
+}
+
+.comment-reply-link {
+  font-size: 13px;
+  font-weight: 500;
+  color: #00796b;
+  background-color: #e0f2f1;
+  padding: 4px 10px;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.comment-reply-link:hover {
+  background-color: #b2dfdb;
+  color: #004d40;
+}
+
+.comment-footer .comment-reply-link {
+  margin: 0 !important;
+}
+
+.comment-awaiting-moderation,
+.comment-footer .comment-awaiting-moderation {
+  font-size: 13px;
+  color: #d32f2f;
+  background-color: #fff3f3;
+  border-right: 4px solid #d32f2f;
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.comment-list,
+.comment-list > li {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.comment-list li {
+  position: relative;
+}
+
+/* Nested Comments */
+.comment-list .children {
+  position: relative;
+  margin-right: 2rem;
+  list-style: none;
+  padding-right: 1.5rem;
+  border-right: 2px dashed #b2dfdb;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
+
+.comment-list .children.collapsed {
+  max-height: 0;
+  opacity: 0;
+  padding: 0;
+  margin: 0;
+  border-right: 2px dashed transparent;
+  pointer-events: none;
+}
+
+.comment-list .children:has(> li:not(:last-child))::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 2.4rem;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(to bottom, #80cbc4, #009688);
+  border-radius: 2px;
+  opacity: 0.7;
+}
+
+.comment-list .children > li::before {
+  content: '';
+  position: absolute;
+  right: -1.5rem;
+  top: 2rem;
+  width: 1.5rem;
+  height: 2px;
+  background: #4db6ac;
+  border-radius: 2px;
+}
+
+.comment-list .children > li:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: -1.5rem;
+  top: 2rem;
+  bottom: -1rem;
+  width: 2px;
+  background: #b2dfdb;
+  opacity: 0.7;
+}
+
+.comment-list .children > li .comment-body {
+  background: #f1fefb;
+  border-right: 3px solid #4db6ac;
+  box-shadow: 0 2px 6px rgba(0, 150, 136, 0.1);
+}
+
+/* Toggle nested comments */
+.toggle-children {
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: #00796b;
+  cursor: pointer;
+  margin-right: 8px;
+  transition: transform 0.3s ease;
+}
+.toggle-children:hover {
+  transform: scale(1.2);
+}
+
+/* Special roles */
+.admin-reply,
+.user-reply {
+  border-radius: 8px;
+  padding: 0.6rem;
+}
+
+/* فرم ارسال دیدگاه */
+#respond {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 2rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  font-family: "Yekan Bakh FaNum", sans-serif;
+}
+
+#reply-title {
+  font-size: 18px;
+  margin-bottom: 1rem;
+  font-weight: bold;
+}
+
+#commentform {
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+}
+
+#commentform label {
+  font-weight: bold;
+  margin-bottom: 4px;
+  display: block;
+}
+
+#commentform input[type="text"],
+#commentform input[type="email"],
+#commentform input[type="url"],
+#commentform textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: inherit;
+  box-sizing: border-box;
+}
+
+#commentform textarea {
+  min-height: 120px;
+}
+
+#commentform .comment-form-cookies-consent {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+#commentform input[type="checkbox"] {
+  width: auto;
+  margin: 0;
+}
+
+#commentform .form-submit input[type="submit"] {
+  background: #009688;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-family: "Yekan Bakh FaNum", sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+#commentform .form-submit input[type="submit"]:hover {
+  background: #00796b;
+}
+
+/* ناحیه عنوان دیدگاه‌ها */
+.comments-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #00695c;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e0f2f1;
+  padding-bottom: 0.5rem;
+}
+
+.comments-area {
+  padding: 0.3rem;
+}
+
+
+
+
+
+

@@ -1,0 +1,105 @@
+/* ======================
+   Vazir
+====================== */
+@font-face {
+  font-family: "Vazir";
+  font-weight: 400;
+  src: url('fonts/vazir/Vazirmatn-Regular.woff2') format('woff2');
+}
+
+.font-vazir {
+  font-family: "Vazir", sans-serif;
+}
+
+
+/* ======================
+   Vazir Code
+====================== */
+@font-face {
+  font-family: "Vazir Code";
+  font-weight: 400;
+  src: url('fonts/vazircode/Vazir-Code-FD.woff2') format('woff2'),
+       url('fonts/vazircode/Vazir-Code-FD.woff') format('woff');
+}
+
+.font-vazircode {
+  font-family: "Vazir Code", monospace;
+}
+
+
+/* ======================
+   Nahid
+====================== */
+@font-face {
+  font-family: "Nahid";
+  src: url('fonts/nahid/Nahid-FD.woff2') format('woff2'),
+       url('fonts/nahid/Nahid-FD.woff') format('woff');
+}
+.font-nahid {
+  font-family: "Nahid", sans-serif;
+}
+
+
+/* ======================
+   Parastoo
+====================== */
+@font-face {
+  font-family: "Parastoo";
+  src: url('fonts/parastoo/Parastoo-FD.woff2') format('woff2'),
+       url('fonts/parastoo/Parastoo-FD.woff') format('woff');
+}
+.font-parastoo {
+  font-family: "Parastoo", sans-serif;
+}
+
+
+/* ======================
+   Gandom
+====================== */
+@font-face {
+  font-family: "Gandom";
+  src: url('fonts/gandom/Gandom-FD.woff2') format('woff2'),
+       url('fonts/gandom/Gandom-FD.woff') format('woff');
+}
+.font-gandom {
+  font-family: "Gandom", sans-serif;
+}
+
+
+/* ======================
+   Sahel
+====================== */
+@font-face {
+  font-family: "Sahel";
+  src: url('fonts/sahel/Sahel-FD.woff2') format('woff2'),
+       url('fonts/sahel/Sahel-FD.woff') format('woff');
+}
+.font-sahel {
+  font-family: "Sahel", sans-serif;
+}
+
+
+/* ======================
+   Shabnam
+====================== */
+@font-face {
+  font-family: "Shabnam";
+  src: url('fonts/shabnam/Shabnam-FD.woff2') format('woff2'),
+       url('fonts/shabnam/Shabnam-FD.woff') format('woff');
+}
+.font-shabnam {
+  font-family: "Shabnam", sans-serif;
+}
+
+
+/* ======================
+   Tanha
+====================== */
+@font-face {
+  font-family: "Tanha";
+  src: url('fonts/tanha/Tanha-FD.woff2') format('woff2'),
+       url('fonts/tanha/Tanha-FD.woff') format('woff');
+}
+.font-tanha {
+  font-family: "Tanha", sans-serif;
+}

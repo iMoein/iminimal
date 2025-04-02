@@ -1,0 +1,389 @@
+/* === پاراگراف === */
+.wp-block-paragraph {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 1.5rem;
+}
+
+/* === تیتر === */
+.wp-block-heading {
+  font-weight: bold;
+  color: #00695c;
+  margin: 2rem 0 1rem;
+  line-height: 1.6;
+}
+
+/* === تصویر === */
+.wp-block-image {
+  text-align: center;
+  margin: 2rem 0;
+}
+.wp-block-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.wp-block-image figcaption {
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  color: #666;
+  text-align: right;
+}
+
+/* === گالری تصاویر === */
+.wp-block-gallery {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 2rem 0;
+  justify-content: center;
+}
+.wp-block-gallery .blocks-gallery-image img,
+.wp-block-gallery .blocks-gallery-item img {
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* === لیست === */
+.wp-block-list {
+  margin: 1rem 0;
+  padding-right: 1.5rem;
+}
+.wp-block-list li {
+  font-size: 14.5px;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 0.5rem;
+}
+
+/* === نقل‌قول === */
+.wp-block-quote {
+  border-right: 4px solid #009688;
+  padding: 1rem 1.5rem;
+  margin: 2rem 0;
+  background: #f1fefb;
+  border-radius: 12px;
+  font-style: italic;
+  color: #444;
+}
+.wp-block-quote cite {
+  display: block;
+  margin-top: 0.8rem;
+  font-size: 0.85rem;
+  color: #00796b;
+}
+
+/* === کد === */
+.wp-block-code {
+  background: #f5f5f5;
+  border-right: 4px solid #b2dfdb;
+  padding: 1rem;
+  border-radius: 8px;
+  direction: ltr;
+  font-family: monospace;
+  font-size: 14px;
+  overflow-x: auto;
+}
+
+/* === پیش‌فرمت === */
+.wp-block-preformatted {
+  background: #f8f8f8;
+  padding: 1rem;
+  border-radius: 8px;
+  font-family: monospace;
+  color: #444;
+  direction: ltr;
+  overflow-x: auto;
+}
+
+/* === فایل === */
+.wp-block-file {
+  padding: 1rem;
+  border: 1px dashed #ccc;
+  border-radius: 10px;
+  background: #fafafa;
+  margin: 1.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.wp-block-file a {
+  color: #00695c;
+  font-weight: bold;
+}
+
+/* === دکمه === */
+.wp-block-button .wp-block-button__link {
+  background-color: #009688;
+  color: white;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-weight: 500;
+  font-size: 14px;
+  transition: background 0.3s ease;
+}
+.wp-block-button .wp-block-button__link:hover {
+  background-color: #00796b;
+  color: #fff;
+}
+
+/* === گروه === */
+.wp-block-group {
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.03);
+  margin-bottom: 2rem;
+}
+
+/* === ستون‌ها و ستون === */
+.wp-block-columns {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.wp-block-column {
+  flex: 1;
+}
+
+/* === پوشش === */
+.wp-block-cover {
+  position: relative;
+  text-align: center;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.wp-block-cover img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+.wp-block-cover .wp-block-cover-text {
+  color: white;
+  font-size: 1.5rem;
+}
+
+/* === رسانه و متن === */
+.wp-block-media-text {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+.wp-block-media-text .wp-block-media-text__media img {
+  border-radius: 10px;
+}
+
+/* === جداساز === */
+.wp-block-separator {
+  border: none;
+  border-top: 1px solid #e2e2e2;
+  margin: 30px 0;
+}
+
+/* === HTML سفارشی === */
+.wp-block-html {
+  direction: ltr;
+  font-size: 14px;
+}
+
+/* === جدول === */
+.wp-block-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 2rem 0;
+  font-size: 14px;
+}
+.wp-block-table td,
+.wp-block-table th {
+  border: 1px solid #ccc;
+  padding: 0.75rem;
+  text-align: right;
+}
+
+/* === فاصله‌ساز === */
+.wp-block-spacer {
+  height: 2rem;
+  display: block;
+}
+
+/* === نقل‌قول سفارشی === */
+[class*="wp-block-"][class*="testimonial"],
+[class*="quote-box"],
+[class*="client"],
+[class*="faq"],
+[class*="info-box"],
+[class*="feature-box"],
+[class*="pricing-box"],
+[class*="team-members"],
+[class*="services"],
+[class*="portfolio"],
+[class*="contact-box"],
+[class*="counter-box"],
+[class*="logo-box"],
+[class*="partners"],
+[class*="skills"],
+[class*="awards"] {
+  background: #fdfdfd;
+  border-right: 4px solid #009688;
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+
+
+/* گالری کلاسیک وردپرس */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  margin: 2rem 0;
+  padding: 0;
+  list-style: none;
+}
+
+.gallery-columns-2 .gallery-item,
+.gallery-columns-3 .gallery-item,
+.gallery-columns-4 .gallery-item,
+.gallery-columns-5 .gallery-item {
+  width: calc(100% / 2 - 1rem);
+}
+
+.gallery-columns-3 .gallery-item { width: calc(100% / 3 - 1rem); }
+.gallery-columns-4 .gallery-item { width: calc(100% / 4 - 1rem); }
+.gallery-columns-5 .gallery-item { width: calc(100% / 5 - 1rem); }
+
+.gallery-item {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  text-align: center;
+}
+
+.gallery-icon {
+  padding: 0.5rem;
+  display: block;
+}
+
+.gallery-icon img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+.gallery-icon img:hover {
+  transform: scale(1.03);
+}
+
+.gallery-caption {
+  padding: 0.5rem 1rem;
+  font-size: 13px;
+  color: #444;
+  background: #f9f9f9;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+.wp-block-heading.has-text-align-center
+{ color: white;}
+
+.wp-playlist-light {
+  background: linear-gradient(145deg, #f0f0f0, #ffffff);
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(0,0,0,0.05);
+  padding: 20px;
+  direction: rtl;
+  max-width: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.wp-playlist-current-item {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.wp-playlist-current-item img {
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.wp-playlist-current-item img:hover {
+  transform: scale(1.05);
+}
+
+.wp-playlist-caption {
+  font-family: "Yekan Bakh FaNum", sans-serif;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}
+
+.wp-playlist-item-title {
+  display: block;
+  color: #111;
+  font-size: 18px;
+}
+
+.wp-playlist-item-artist {
+  color: #666;
+  font-size: 14px;
+}
+
+.mejs-container {
+  border-radius: 15px;
+  overflow: hidden;
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+}
+
+.mejs-controls {
+  background: transparent;
+  height: 40px;
+}
+
+.mejs-button button {
+  color: #007acc;
+  transition: all 0.2s ease-in-out;
+}
+
+.mejs-button button:hover {
+  transform: scale(1.2);
+}
+
+.mejs-time-current, .mejs-time-loaded, .mejs-horizontal-volume-current {
+  background-color: #00bcd4;
+}
+
+.mejs-time-handle-content {
+  background-color: #00bcd4;
+  border-radius: 50%;
+  width: 10px;
+  height: 10px;
+}
+
+.mejs-time-float {
+  background-color: #00bcd4;
+  color: #fff;
+  border-radius: 5px;
+}
+
+.wp-playlist-prev,
+.wp-playlist-next {
+  display: none;
+}
+
+.wp-playlist-tracks {
+  display: none; /* پنهان کردن لیست ترک‌ها چون فقط یکیه */
+}
