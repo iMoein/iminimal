@@ -186,7 +186,6 @@ function less_enqueue_scripts() {
 	);
 }
 add_action('wp_enqueue_scripts', 'less_enqueue_scripts');
-add_filter('site_transient_update_themes', 'iminimal_check_github_update');
 
 function iminimal_check_github_update($transient) {
     $theme = wp_get_theme();
@@ -229,3 +228,4 @@ function iminimal_check_github_update($transient) {
 
     return $transient;
 }
+add_filter('site_transient_update_themes', 'iminimal_check_github_update');
