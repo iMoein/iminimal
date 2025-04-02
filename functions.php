@@ -186,13 +186,12 @@ function less_enqueue_scripts() {
 	);
 }
 add_action('wp_enqueue_scripts', 'less_enqueue_scripts');
- 
 add_filter('site_transient_update_themes', 'iminimal_check_github_update');
 
 function iminimal_check_github_update($transient) {
-    $theme_slug = wp_get_theme()->get_stylesheet(); // خودکار گرفتن نام قالب
-    $theme_data = wp_get_theme($theme_slug);
-    $current_version = $theme_data->get('Version');
+    $theme = wp_get_theme();
+    $theme_slug = $theme->get_stylesheet(); // نام دقیق پوشه قالب
+    $current_version = $theme->get('Version');
 
     $github_user = 'iMoein';
     $github_repo = 'iminimal';
@@ -201,7 +200,7 @@ function iminimal_check_github_update($transient) {
     $response = wp_remote_get($github_api_url, [
         'headers' => [
             'Accept' => 'application/vnd.github.v3+json',
-            'User-Agent' => 'WordPress Update Checker'
+            'User-Agent' => 'WordPress Theme Updater'
         ]
     ]);
 
@@ -213,7 +212,6 @@ function iminimal_check_github_update($transient) {
     $latest_version = ltrim($body->tag_name, 'v');
 
     if (version_compare($latest_version, $current_version, '>')) {
-        // اطمینان از اینکه $transient آبجکت هست
         if (!is_object($transient)) {
             $transient = new stdClass();
         }
