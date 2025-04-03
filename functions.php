@@ -1,9 +1,9 @@
 <?php
 
-define('LESS_VERSION', 1.1);
+define('iminimal_VERSION', 1.1);
 
 // لیست فونت‌های قابل انتخاب
-function less_available_fonts() {
+function iminimal_available_fonts() {
     return [
         'vazir' => 'Vazir',
         'vazircode' => 'Vazir Code',
@@ -17,32 +17,31 @@ function less_available_fonts() {
 }
 
 // فعال‌سازی ویژگی‌های قالب
-function less_theme_setup() {
+function iminimal_theme_setup() {
 	add_theme_support('automatic-feed-links');
 	add_theme_support('post-thumbnails');
-	add_image_size('featured-thumb', 800, 400, true);
-	add_image_size('medium', 160, 180, true);
 	add_image_size('featured-thumb', 1200, 600, true);
+	add_image_size('medium', 160, 180, true);
 	add_theme_support('title-tag');
 	add_theme_support('html5', ['comment-list', 'comment-form', 'search-form', 'gallery', 'caption']);
 
 	register_nav_menus([
-		'primary' => __('Primary Menu', 'less'),
+		'primary' => __('Primary Menu', 'iminimal'),
 	]);
 }
-add_action('after_setup_theme', 'less_theme_setup');
+add_action('after_setup_theme', 'iminimal_theme_setup');
 
 // بارگذاری استایل‌ها بر اساس تنظیمات
-function less_enqueue_styles() {
+function iminimal_enqueue_styles() {
 	if (is_rtl()) {
 		if (get_option('enable_custom_font', 0)) {
-			wp_enqueue_style('less-fonts', get_template_directory_uri() . '/css/rtl-fonts.css', [], LESS_VERSION);
+			wp_enqueue_style('iminimal-fonts', get_template_directory_uri() . '/css/rtl-fonts.css', [], iminimal_VERSION);
 		}
 	} else {
-		wp_enqueue_style('less-style', get_template_directory_uri() . '/style.css', [], LESS_VERSION);
+		wp_enqueue_style('iminimal-style', get_template_directory_uri() . '/style.css', [], iminimal_VERSION);
 	}
 }
-add_action('wp_enqueue_scripts', 'less_enqueue_styles');
+add_action('wp_enqueue_scripts', 'iminimal_enqueue_styles');
 
 // افزودن کلاس فونت به body
 add_filter('body_class', function($classes) {
@@ -55,15 +54,15 @@ add_filter('body_class', function($classes) {
 });
 
 // تنظیمات قالب در پیشخوان
-function less_add_theme_settings_page() {
-	add_theme_page('تنظیمات قالب', 'تنظیمات قالب', 'manage_options', 'font-settings', 'less_render_theme_settings_page');
+function iminimal_add_theme_settings_page() {
+	add_theme_page('تنظیمات قالب', 'تنظیمات قالب', 'manage_options', 'font-settings', 'iminimal_render_theme_settings_page');
 }
-add_action('admin_menu', 'less_add_theme_settings_page');
+add_action('admin_menu', 'iminimal_add_theme_settings_page');
 
 // محتوای صفحه تنظیمات
-function less_render_theme_settings_page() {
+function iminimal_render_theme_settings_page() {
 	if (isset($_POST['submit'])) {
-		check_admin_referer('less_theme_settings_save', 'less_theme_settings_nonce');
+		check_admin_referer('iminimal_theme_settings_save', 'iminimal_theme_settings_nonce');
 		update_option('enable_custom_font', isset($_POST['enable_custom_font']) ? 1 : 0);
 		update_option('show_read_more', isset($_POST['show_read_more']) ? 1 : 0);
 		update_option('selected_font_family', sanitize_text_field($_POST['selected_font_family']));
@@ -75,12 +74,12 @@ function less_render_theme_settings_page() {
 	$show_read_more     = get_option('show_read_more', 0);
 	$show_header_box    = get_option('show_header_box', 1);
 	$current_font       = get_option('selected_font_family', 'Vazir');
-	$fonts              = less_available_fonts();
+	$fonts              = iminimal_available_fonts();
 	?>
 	<div class="wrap">
 		<h1>تنظیمات قالب</h1>
 		<form method="post">
-			<?php wp_nonce_field('less_theme_settings_save', 'less_theme_settings_nonce'); ?>
+			<?php wp_nonce_field('iminimal_theme_settings_save', 'iminimal_theme_settings_nonce'); ?>
 			<table class="form-table">
 				<tr>
 					<th scope="row">فونت سفارشی</th>
@@ -114,7 +113,7 @@ function less_render_theme_settings_page() {
 }
 
 // ثبت ابزارک‌های فوتر
-function less_register_footer_widgets() {
+function iminimal_register_footer_widgets() {
 	for ($i = 1; $i <= 3; $i++) {
 		register_sidebar([
 			'name' => "Footer $i",
@@ -132,15 +131,12 @@ function less_register_footer_widgets() {
 		'after_widget'  => '</div>',
 		'before_title'  => '<h3 class="widget-title">',
 		'after_title'   => '</h3>',
-	  ]);
-	  
+	]);
 }
-add_action('widgets_init', 'less_register_footer_widgets');
-
-
+add_action('widgets_init', 'iminimal_register_footer_widgets');
 
 // ساختار سفارشی دیدگاه‌ها
-function less_theme_comment($comment, $args, $depth) {
+function iminimal_theme_comment($comment, $args, $depth) {
 	$tag = ('div' === $args['style']) ? 'div' : 'li';
 	$author_id = $comment->user_id;
 	$is_admin = user_can($author_id, 'manage_options');
@@ -174,58 +170,17 @@ function less_theme_comment($comment, $args, $depth) {
 }
 
 // اسکریپت‌ها
-function less_enqueue_scripts() {
+function iminimal_enqueue_scripts() {
 	wp_enqueue_script('jquery');
-
-	wp_enqueue_script(
-		'less-theme-main',
-		get_template_directory_uri() . '/js/theme.min.js',
-		array('jquery'),
-		null,
-		true
-	);
+	wp_enqueue_script('iminimal-theme-main', get_template_directory_uri() . '/js/theme.min.js', ['jquery'], null, true);
 }
-add_action('wp_enqueue_scripts', 'less_enqueue_scripts');
+add_action('wp_enqueue_scripts', 'iminimal_enqueue_scripts');
 
-function iminimal_check_github_update($transient) {
-    $theme = wp_get_theme();
-    $theme_slug = $theme->get_stylesheet(); // نام دقیق پوشه قالب
-    $current_version = $theme->get('Version');
+// نمایش هشدار در صورت غیرفعال بودن افزونه آپدیت
+include_once(ABSPATH . 'wp-admin/includes/plugin.php');
 
-    $github_user = 'iMoein';
-    $github_repo = 'iminimal';
-    $github_api_url = "https://api.github.com/repos/$github_user/$github_repo/releases/latest";
-
-    $response = wp_remote_get($github_api_url, [
-        'headers' => [
-            'Accept' => 'application/vnd.github.v3+json',
-            'User-Agent' => 'WordPress Theme Updater'
-        ]
-    ]);
-
-    if (is_wp_error($response)) return $transient;
-
-    $body = json_decode(wp_remote_retrieve_body($response));
-    if (!isset($body->tag_name)) return $transient;
-
-    $latest_version = ltrim($body->tag_name, 'v');
-
-    if (version_compare($latest_version, $current_version, '>')) {
-        if (!is_object($transient)) {
-            $transient = new stdClass();
-        }
-        if (!isset($transient->response)) {
-            $transient->response = [];
-        }
-
-        $transient->response[$theme_slug] = [
-            'theme'       => $theme_slug,
-            'new_version' => $latest_version,
-            'url'         => "https://github.com/$github_user/$github_repo",
-            'package'     => "https://github.com/$github_user/$github_repo/archive/refs/tags/{$body->tag_name}.zip"
-        ];
-    }
-
-    return $transient;
-}
-add_filter('site_transient_update_themes', 'iminimal_check_github_update');
+add_action('admin_notices', function () {
+	if (!is_plugin_active('iminimal-updater/iminimal-updater.php')) {
+		echo '<div class="notice notice-error"><p>⚠️ برای دریافت بروزرسانی‌های قالب <strong>iMinimal</strong>، لطفاً افزونه <strong>iMinimal Updater</strong> را نصب و فعال کنید.</p></div>';
+	}
+});
